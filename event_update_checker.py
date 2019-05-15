@@ -1,6 +1,3 @@
-from hash_maker import HashMaker
-from spider_runner import SpiderRunner
-
 from event_content_hasher import EventContentHasher
 
 class EventUpdateChecker:
@@ -13,13 +10,6 @@ class EventUpdateChecker:
         self.previous_content_hash  = content_hash
         self.event_content_hasher   = EventContentHasher(url=url,
                                                          content_tag=content_tag)
-        self.init_spider()
-
-    # Initializer the web crawler/spider
-    def init_spider(self):
-        self.spider = SpiderRunner('css_tag_content',
-                                   url=self.url,
-                                   css_tag=self.content_tag)
 
     # Check if the event has been updated
     def check(self):
