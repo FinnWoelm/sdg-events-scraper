@@ -1,4 +1,5 @@
 from event_content_hasher import EventContentHasher
+from hash_maker import HashMaker
 
 class Event:
     # Parameters
@@ -26,6 +27,14 @@ class Event:
         self.content_tag                = arguments.pop('content_tag', None)
         self.content_hash_in_database   = arguments.pop('content_hash_in_database', None)
         self.content_hash_in_source     = None
+
+    def generate_id(self):
+        if self.id:
+            print("ID is already set: " + str(self.id))
+        else:
+            hashable_identifier = str(self.title) + str(self.date) + str(self.url) + str(self.location)
+            self.id = HashMaker.md5_hash_from_text(hashable_identifier)
+            return self.id
 
     def missing_content_tag(self):
         return not self.content_tag

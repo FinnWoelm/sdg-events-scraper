@@ -39,7 +39,7 @@ class EventContentHasher:
 # Call this script to hash the contents of a given URL and content tag
 if __name__ == "__main__":
     url = raw_input("URL: ")
-    content_tag = raw_input("CSS tag:")
+    content_tag = raw_input("CSS tag: ")
     hasher = EventContentHasher(str(url), str(content_tag))
     print("Generating content ID...")
     print("CID: " + hasher.content_hash())

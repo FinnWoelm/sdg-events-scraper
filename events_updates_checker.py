@@ -67,6 +67,12 @@ if __name__ == "__main__":
         print("Aborting...")
         exit()
 
-    print("Events needing update: " + str(len(checker.events_needing_update())))
-    for event in checker.events_needing_update():
-        print("Event " + event.id + " needs an update")
+    events_needing_update_count = len(checker.events_needing_update())
+    print("There are " + str(events_needing_update_count) + " events needing update:")
+
+    for count, event in enumerate(checker.events_needing_update(), start=1):
+        print("*** Event #"+ str(count) + "/" + str(events_needing_update_count) + " ***")
+        print("ID: "      + str(event.id))
+        print("URL: "     + str(event.url))
+        print("New CID: " + str(event.content_hash_in_source))
+        print("")
