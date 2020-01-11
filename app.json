@@ -1,0 +1,5 @@
+{
+  "name": "SDG Events Scraper",
+  "description": "A web scraper to scrape events about the Sustainable Development Goals happening in Germany.",
+  "image": "heroku/python"
+}
