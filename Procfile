@@ -1,1 +1,1 @@
-worker: pipenv run python hello_world.py
+worker: pipenv run python -u hello_world.py
